@@ -22,6 +22,12 @@ It allows users to add books to a library, mark them as read or unread, and remo
 
 ---
 
+## Live Preview
+
+[Click here to view the live preview](https://nwaynwayzayya.github.io/Project-Admin-Dashboard/)
+
+---
+
 ## Technologies Used
 
 - HTML
