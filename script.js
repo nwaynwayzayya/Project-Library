@@ -8,6 +8,17 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+//Use prototype so that every instance of the prototypee "Book" will have this function
+Book.prototype.toggleRead = function () {
+    this.read = !this.read;
+}
+
+//Function for "ToggleRead"
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+    render();
+}
+
 
 //Function to render books
 function render() {
@@ -25,10 +36,19 @@ function render() {
             <div class="card-body">
             <p>${book.pages} pages</p>
             <p class="read-status">${book.read ? "Read" : "Not Read Yet"}</p>
+            <button class="remove-btn" onclick="removeBook(${i})">Remove</button>
+            <button class="toggle-read-btn" onclick="toggleRead(${i})">Toggle Read</button>
         </div>
         `;
         libraryEl.appendChild(bookEl);
     }
+}
+
+
+// Function to remove books
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    render();   // this is used here to rerender so that the removed book will disappear and only the left books will appear
 }
 
 //Function to add new books
